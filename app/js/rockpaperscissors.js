@@ -65,3 +65,4 @@ function playToFive() {
     return [playerWins, computerWins];
 }
 
+getWinner(getPlayerMove(), getComputerMove());
