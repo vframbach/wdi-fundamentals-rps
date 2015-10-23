@@ -1,10 +1,11 @@
+/* global console, prompt */
 ////////////////////////////////////////////////
 /*   Provided Code - Please Don't Edit   */
 ////////////////////////////////////////////////
 'use strict';
 
 function getInput() {
-    console.log("Please choose either 'rock', 'paper', or 'scissors'.")
+    console.log("Please choose either 'rock', 'paper', or 'scissors'.");
     return prompt();
 }
 function randomPlay() {
@@ -62,7 +63,20 @@ function playToFive() {
     var computerWins = 0;
     // Write code that plays 'Rock, Paper, Scissors' until either the player or the computer has won five times.
     /* YOUR CODE HERE */
+    while (playerWins < 5 && computerWins < 5) {
+        var playerMove = getPlayerMove();
+        var computerMove = getComputerMove();
+        var winner = getWinner(playerMove, computerMove);
+        if (winner == "player") {
+            playerWins = playerWins + 1;
+        }
+        if (winner == "computer") {
+            computerWins = computerWins + 1;
+        }
+        console.log("Player chose", playerMove, "Computer chose", computerMove);
+        console.log("Player wins", playerWins, "Computer wins", computerWins);
+    }
     return [playerWins, computerWins];
 }
 
-getWinner(getPlayerMove(), getComputerMove());
+console.log(playToFive());
